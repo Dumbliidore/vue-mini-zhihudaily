@@ -1,0 +1,86 @@
+<view class="bg-gray-100 min-h-screen">
+    <view class="mx-2 py-2">
+        <view class="flex items-center p-3 bg-white rounded-md shadow-lg">
+            <view
+                bindtap="router"
+                data-page="profile"
+                class="flex justify-center items-center w-14 h-14 rounded-full shadow-md bg-gray-300"
+            >
+                <image
+                    class="w-14 h-14 fill-gray-700 rounded-full"
+                    src="{{ user.avatar || defaultAvatar }}"
+                />
+            </view>
+
+            <view
+                bindtap="router"
+                data-page="profile"
+                class="block border-l border-gray-300 m-3"
+            >
+                <view wx:if="{{ user.name }}" class="pl-3">
+                    <text class="text-gray-600 font-normal text-sm"
+                        >{{ user.name || '游客' }}</text
+                    >
+                    <text
+                        class="bg-clip-text text-transparent bg-gradient-to-l from-[#005BC4] to-[#27272A] text-lg font-bold"
+                    >
+                        {{ user.job || '什么都没有说' }}
+                    </text>
+                    <view class="flex gap-3 pt-2 pl-3"> </view>
+                </view>
+                <view wx:else class="pl-3" catchtap="toLogin">
+                    <text class="text-black text-base">登录/注册</text>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view
+        class="m-2 text-gray-900 bg-white border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white rounded-lg shadow-lg"
+    >
+        <view bindtap="router" data-page="favorite" class="px-2">
+            <view
+                class="relative inline-flex items-center w-full py-2 text-base font-normal hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white border-b border-gray-300 dark:border-gray-600"
+            >
+                <image class="w-5 h-5 me-2" src="{{ favoriteIcon }}" />
+                <text class="w-full">我的收藏</text>
+                <image class="w-5 h-5" src="{{ arrowIcon }}" />
+            </view>
+        </view>
+
+        <view bindtap="onClearCache" class="px-2">
+            <view
+                class="relative inline-flex items-center w-full py-2 text-base font-normal hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white border-b border-gray-300 dark:border-gray-600"
+            >
+                <image class="w-5 h-5 me-2" src="{{ cleanIcon }}" />
+                <text class="w-full">清理缓存</text>
+                <image class="w-5 h-5" src="{{ arrowIcon }}" />
+            </view>
+        </view>
+
+        <view class="px-2">
+            <view
+                class="relative inline-flex items-center w-full py-2 text-base font-normal hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white border-b border-gray-300 dark:border-gray-600"
+            >
+                <image class="w-5 h-5 me-2" src="{{ suggestionIcon }}" />
+                <button
+                    open-type="feedback"
+                    class="bg-transparent border-none border-transparent text-base text-left w-full p-0 m-0 after:border-none rounded-none"
+                >
+                    意见反馈
+                </button>
+                <image class="w-5 h-5" src="{{ arrowIcon }}" />
+            </view>
+        </view>
+
+        <view data-page="copyright" bindtap="router" class="px-2">
+            <view
+                class="relative inline-flex items-center w-full py-2 text-base font-normal hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
+            >
+                <image class="w-5 h-5 me-2" src="{{ copyrightIcon }}" />
+                <text class="w-full">版权说明</text>
+                <image class="w-5 h-5" src="{{ arrowIcon}}" />
+            </view>
+        </view>
+    </view>
+</view>

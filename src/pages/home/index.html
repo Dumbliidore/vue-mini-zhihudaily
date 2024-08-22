@@ -1,0 +1,64 @@
+<view class="bg-gray-100 min-h-screen">
+    <swiper
+        autoplay="true"
+        circular="true"
+        indicator-dots="true"
+        indicator-color="#ccc"
+        indicator-active-color="#ffd300"
+        class="relative h-[18rem]"
+    >
+        <swiper-item wx:for="{{ slides }}" wx:for-item="slide" wx:key="id">
+            <image
+                bindtap="goToDetail"
+                data-id="{{ slide.id }}"
+                src="{{ slide.image}}"
+                alt="{{ slide.title }}"
+                mode="aspectFill"
+                class="block w-full h-full"
+            ></image>
+            <view
+                class="absolute top-0 left-0 w-full h-full bg-gray-400 opacity-40"
+            />
+            <view
+                bindtap="goToDetail"
+                data-id="{{ slide.id }}"
+                class="after:content-normal after:absolute after:border-4 after:border-solid after:border-yellow-300 after:block after:w-36 after:right-0 after:-bottom-3 text-white right-2.5 w-2/3 text-right drop-shadow-md leading-6 text-sm absolute bottom-14"
+            >
+                {{ slide.title }}
+            </view>
+        </swiper-item>
+    </swiper>
+
+    <view class="mx-2 pb-2">
+        <view class="my-2">
+            <button
+                size="mini"
+                class="bg-blue-500 text-white px-2 font-semibold rounded-md"
+            >
+                {{ date }}
+            </button>
+        </view>
+
+        <view
+            class="flex items-center justify-between mt-2 p-3 bg-white rounded-lg shadow-lg border-gray-300 dark:bg-gray-800"
+            wx:for="{{ dailyNews }}"
+            wx:for-item="news"
+            wx:key="id"
+        >
+            <image
+                src="{{ news.image }}"
+                alt="{{ news.title }}"
+                mode="aspectFill"
+                class="flex-none w-20 h-20 rounded-lg"
+            />
+
+            <view
+                bindtap="goToDetail"
+                data-id="{{ news.id }}"
+                class="flex-auto text-wrap px-4 text-sm text-gray-600 dark:text-gray-400"
+            >
+                {{ news.title }}
+            </view>
+        </view>
+    </view>
+</view>

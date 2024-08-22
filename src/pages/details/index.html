@@ -1,0 +1,65 @@
+<view class="overflow-hidden transition min-h-screen">
+    <view
+        class="flex flex-col justify-center items-center py-4 max-w-[80%]"
+    ></view>
+    <image
+        alt=""
+        src="{{ news.image }}"
+        mode="aspectFill"
+        class="block w-full h-80 object-cover"
+    />
+    <!-- class="h-56 w-full object-cover" -->
+
+    <view class="bg-white p-4 sm:p-6">
+        <view class="flex items-center mt-2">
+            <image
+                class="w-10 h-10 rounded-full mr-4"
+                src="{{ news.avatar }}"
+                alt="Avatar of Jonathan Reinink"
+            />
+            <view class="text-sm">
+                <view class="font-bold leading-none">{{ news.author }}</view>
+                <view class="block text-xs text-gray-500 mt-1"
+                    >{{ news.bio }}</view
+                >
+            </view>
+        </view>
+
+        <view class="mt-2">
+            <text class="text-xl font-bold text-gray-900">
+                {{ news.title }}
+            </text>
+        </view>
+
+        <!-- <view class="mt-2 line-clamp-3 text-sm/relaxed text-gray-500"> -->
+        <view class="mt-2">
+            <!-- 以下是测试 -->
+            <mp-html content="{{ news.content }}" />
+            <!-- 以上是测试 -->
+        </view>
+    </view>
+
+    <view class="flex items-center mx-2 pb-2">
+        <view class="h-px flex-1 bg-gray-300"></view>
+        <view class="shrink-0 px-6">知乎日报</view>
+        <view class="h-px flex-1 bg-gray-300"></view>
+    </view>
+
+    <view class="flex justify-center items-center pt-2 pb-4">
+        <button
+            open-type="share"
+            class="mx-2 bg-green-600 w-28 flex justify-center items-center p-2 text-base text-white font-normal"
+        >
+            <image class="w-5 h-5 me-1" src="{{ wechatIcon }}" />
+            分享
+        </button>
+
+        <button
+            bindtap="collect"
+            class="mx-2 bg-red-600 w-28 flex justify-center items-center p-2 text-base text-white font-normal"
+        >
+            <image class="w-5 h-5 me-1" src="{{ collectImgURL }}" />
+            {{ collectButtonText }}
+        </button>
+    </view>
+</view>

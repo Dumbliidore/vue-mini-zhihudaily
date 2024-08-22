@@ -1,0 +1,38 @@
+<view class="bg-gray-100 min-h-screen">
+    <view class="mx-2 mb-2">
+        <view class="pt-4 mb-2 flex justify-between">
+            <text class="ml-2 text-base text-slate-500 font-medium"
+                >共计{{ favoriteNews.length || 0 }}篇收藏</text
+            >
+            <button
+                bindtap="clear"
+                size="mini"
+                class="bg-red-500 text-white px-4 font-medium text-[28px] rounded-full mr-2"
+            >
+                清空收藏
+            </button>
+        </view>
+
+        <view
+            class="flex items-center justify-between mt-2 p-3 bg-white rounded-lg shadow-lg dark:bg-gray-800"
+            wx:for="{{ favoriteNews }}"
+            wx:for-item="news"
+            wx:key="id"
+        >
+            <image
+                src="{{ news.image }}"
+                alt="{{ news.title }}"
+                mode="aspectFill"
+                class="flex-none w-20 h-20 rounded-lg"
+            />
+
+            <view
+                bindtap="goToDetail"
+                data-id="{{ news.id }}"
+                class="flex-auto text-wrap px-4 text-sm text-gray-600 dark:text-gray-400"
+            >
+                {{ news.title }}
+            </view>
+        </view>
+    </view>
+</view>

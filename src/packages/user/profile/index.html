@@ -1,0 +1,68 @@
+<view class="bg-gray-200 min-h-screen">
+    <view class="flex items-center justify-center h-56 bg-white">
+        <view
+            class="w-28 h-28 rounded-full shadow-md bg-gray-100 flex items-center justify-center"
+        >
+            <button
+                open-type="chooseAvatar"
+                bind:chooseavatar="onChooseAvatar"
+                class="flex flex-end bg-transparent border-none border-transparent p-0 m-0 after:border-none rounded-none"
+            >
+                <image
+                    class="w-28 h-28 fill-gray-700 rounded-full"
+                    src="{{ user.avatar || defaultAvatar }}"
+                />
+            </button>
+        </view>
+    </view>
+
+    <view class="mt-3 text-gray-900 bg-white shadow-lg">
+        <view class="px-2">
+            <view
+                class="relative inline-flex items-center w-full py-2 text-base font-normal dark:border-gray-600"
+            >
+                <text class="text-nowrap w-2/12 py-2">昵称</text>
+                <view class="pl-1 border-b border-gray-300 w-10/12">
+                    <input
+                        maxlength="-1"
+                        class="w-full py-2"
+                        type="nickname"
+                        placeholder="请输入昵称"
+                        value="{{ user.name || '游客' }}"
+                        bindchange="onChangeNickName"
+                        required
+                    />
+                </view>
+            </view>
+        </view>
+        <view class="px-2">
+            <view
+                class="relative inline-flex items-center w-full py-2 text-base font-normal"
+            >
+                <text class="text-nowrap w-2/12 py-2">职业</text>
+                <view class="pl-1 w-10/12">
+                    <input
+                        maxlength="-1"
+                        class="w-full py-2"
+                        type="text"
+                        bindchange="onChangeJob"
+                        placeholder="请输入职业"
+                    />
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="mx-auto mt-2">
+        <view class="px-2 text-[0.7em] leading-4 text-gray-400">
+            根据未成年人保护相关法律法规的要求，我们不主动处理14周岁以下未成年人的个人信息。如果您为14周岁以下的用户，请勿填写您的个人资料。
+        </view>
+        <button
+            bindtap="onSave"
+            size="default"
+            class="mt-5 py-3 text-base w-11/12 text-white rounded-md bg-red-600"
+        >
+            保存
+        </button>
+    </view>
+</view>
