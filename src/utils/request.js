@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://192.168.25.72:5000';
+export const BASE_URL = 'your_api_url';
 
 // 获取用户收藏文章的ID
 export const getFavoriteNews = () => {
